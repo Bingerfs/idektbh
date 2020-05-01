@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
@@ -31,7 +32,10 @@ class SignUpActivity : AppCompatActivity() {
         if( resp) {
             Toast.makeText(this, "Registrado", Toast.LENGTH_LONG).show()
         } else {
-            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+            val builder = AlertDialog.Builder(this) // Builder needs a context
+            builder.setTitle("Warning")
+            builder.setMessage("Invalid name or email")
+            builder.show()
         }
 
     }
